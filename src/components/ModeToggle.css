@@ -1,0 +1,52 @@
+.mode-toggle {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: inline-flex;
+  border: 1.5px solid var(--ink);
+  border-radius: 999px;
+  overflow: hidden;
+  z-index: 10;
+  background: var(--paper);
+}
+
+.mode-toggle button {
+  font-family: 'Space Mono', monospace;
+  font-size: 11.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: none;
+  background: transparent;
+  color: var(--ink-soft);
+  padding: 8px 18px;
+  cursor: pointer;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+.mode-toggle button + button {
+  border-left: 1.5px solid var(--ink);
+}
+
+.mode-toggle button.active {
+  background: var(--ribbon);
+  color: #fff;
+}
+
+.mode-toggle button:hover:not(.active) {
+  color: var(--ink);
+}
+
+.mode-toggle button:focus-visible {
+  outline: 2px solid var(--ribbon);
+  outline-offset: 2px;
+}
+
+/* Rearranging only makes sense with the absolute-positioned desktop
+   layout — Hero.css switches photos to a static wrapped grid below
+   980px, so the toggle would have nothing to visibly do. */
+@media (max-width: 980px) {
+  .mode-toggle {
+    display: none;
+  }
+}

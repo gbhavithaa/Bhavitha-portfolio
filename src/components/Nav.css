@@ -1,0 +1,52 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 28px 5vw 0;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.nav .mark {
+  font-weight: 700;
+  border: 1.5px solid var(--ink);
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav ul {
+  list-style: none;
+  display: flex;
+  gap: 28px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav ul li a {
+  text-decoration: none;
+  position: relative;
+  padding-bottom: 2px;
+}
+
+.nav ul li a:hover {
+  color: var(--ribbon);
+}
+
+.nav ul li a:focus-visible {
+  outline: 2px solid var(--ribbon);
+  outline-offset: 3px;
+}
+
+@media (max-width: 520px) {
+  .nav {
+    padding: 22px 6vw 0;
+  }
+  .nav ul li:not(:last-child) {
+    display: none; /* keep just one nav link on very small screens */
+  }
+}

@@ -1,0 +1,49 @@
+/* ============================================================
+   DESIGN TOKENS
+   Paper + typewriter-ribbon palette. Two type families only:
+   Fraunces (serif, for the name / display) and Space Mono
+   (for everything typed: labels, tagline, nav, captions).
+   ============================================================ */
+:root {
+  --paper: #f3eedf; /* warm cream page background */
+  --paper-deep: #e9dfc4; /* deeper cream, card/tape shading */
+  --ink: #2b2620; /* near-black warm ink, main text */
+  --ink-soft: #6b6255; /* faded ink, secondary text */
+  --ribbon: #b23a2e; /* typewriter ribbon red, main accent */
+  --moss: #4f5e45; /* muted stamp-pad green, secondary accent */
+  --tape: #dccb9c; /* washi tape */
+  --line: rgba(43, 38, 32, 0.22);
+  --shadow: rgba(43, 38, 32, 0.18);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Space Mono', monospace;
+  /* faint paper grain so the cream isn't a flat fill */
+  background-image: radial-gradient(circle at 20% 30%, rgba(43, 38, 32, 0.025) 0, transparent 45%),
+    radial-gradient(circle at 80% 70%, rgba(43, 38, 32, 0.03) 0, transparent 50%);
+}
+
+a {
+  color: inherit;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
