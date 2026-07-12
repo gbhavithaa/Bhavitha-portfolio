@@ -15,6 +15,9 @@
   position: relative;
   width: 100%;
   max-width: 1180px;
+  min-height: 620px;
+  display: grid;
+  place-items: center;
 }
 
 /* ---- centered text block ---- */
@@ -106,215 +109,192 @@ h1.name .cursor {
   font-weight: 700;
 }
 
-.scroll-cue {
-  margin-top: 44px;
-  font-size: 12px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--ink-soft);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-}
-.scroll-cue span {
-  width: 1px;
-  height: 34px;
-  background: var(--line);
-  position: relative;
-  overflow: hidden;
-}
-.scroll-cue span::after {
-  content: '';
+/* ============================================================
+   PHOTO ARTIFACTS
+   ============================================================ */
+.photo-grid {
   position: absolute;
-  top: -34px;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: var(--ribbon);
-  animation: drip 1.8s ease-in-out infinite;
-}
-@keyframes drip {
-  0% {
-    top: -34px;
-  }
-  60%,
-  100% {
-    top: 34px;
-  }
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
 }
 
-/* ============================================================
-   PHOTO SLOTS
-   ============================================================ */
-.photo-slot {
+.photo-artifact {
   position: absolute;
-  background: #fff;
-  padding: 10px 10px 34px;
-  box-shadow: 0 14px 30px -12px var(--shadow), 0 2px 6px rgba(43, 38, 32, 0.08);
   z-index: 2;
-  transition: top 0.6s cubic-bezier(0.22, 1, 0.36, 1), left 0.6s cubic-bezier(0.22, 1, 0.36, 1),
-    right 0.6s cubic-bezier(0.22, 1, 0.36, 1), transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
-    box-shadow 0.35s ease;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  filter: drop-shadow(0 14px 16px rgba(43, 38, 32, 0.14));
+  pointer-events: auto;
+  cursor: pointer;
+  overflow: visible;
+  transition: top 0.62s cubic-bezier(0.22, 1, 0.36, 1), left 0.62s cubic-bezier(0.22, 1, 0.36, 1),
+    right 0.62s cubic-bezier(0.22, 1, 0.36, 1), width 0.62s cubic-bezier(0.22, 1, 0.36, 1),
+    height 0.62s cubic-bezier(0.22, 1, 0.36, 1), transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.35s ease, opacity 0.35s ease;
 }
-.photo-slot:hover {
+.photo-artifact:hover {
   transform: scale(1.04) rotate(0deg) !important;
-  box-shadow: 0 22px 40px -14px var(--shadow), 0 4px 10px rgba(43, 38, 32, 0.1);
+  filter: drop-shadow(0 18px 18px rgba(43, 38, 32, 0.18));
   z-index: 6;
 }
-.frame {
-  width: 100%;
-  height: 100%;
-  border: 1.5px dashed var(--line);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: var(--ink-soft);
-  font-size: 11px;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  background: repeating-linear-gradient(135deg, rgba(43, 38, 32, 0.03) 0 10px, transparent 10px 20px);
+.photo-artifact:focus-visible {
+  outline: 2px solid var(--ribbon);
+  outline-offset: 6px;
 }
-.frame img {
+.photo-artifact img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   display: block;
 }
-.tab {
+.photo-artifact .artifact-overlay {
   position: absolute;
-  bottom: 10px;
-  left: 10px;
-  right: 10px;
-  font-size: 10.5px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--ink-soft);
-  text-align: left;
+  pointer-events: none;
 }
-
-/* washi tape corner accents on a couple of photos */
-.tape-piece {
-  position: absolute;
-  width: 52px;
-  height: 20px;
-  background: var(--tape);
-  opacity: 0.85;
-  box-shadow: 0 2px 4px rgba(43, 38, 32, 0.15);
+.book-stain {
+  width: 48%;
+  height: 66%;
+  top: 18%;
+  left: 48%;
+  opacity: 0.64;
+  transform: rotate(7deg);
+  mix-blend-mode: multiply;
 }
 
 /* --- individual placements (desktop) --- */
 .slot-1 {
-  width: 190px;
-  height: 230px;
-  top: -12%;
-  left: -3%;
-  transform: rotate(-9deg);
+  width: 232px;
+  height: 156px;
+  top: 1%;
+  left: 5%;
+  transform: rotate(-8deg);
 }
 .slot-2 {
-  width: 150px;
-  height: 190px;
-  top: 76%;
-  left: 1%;
-  transform: rotate(7deg);
+  width: 252px;
+  height: 184px;
+  top: 64%;
+  left: 8%;
+  transform: rotate(4deg);
 }
 .slot-3 {
-  width: 170px;
-  height: 210px;
-  top: -16%;
-  right: -1%;
-  transform: rotate(8deg);
+  width: 96px;
+  height: 264px;
+  top: 24%;
+  left: -1%;
+  transform: rotate(-5deg);
 }
 .slot-4 {
-  width: 200px;
-  height: 150px;
-  top: 80%;
-  right: -4%;
-  transform: rotate(-6deg);
+  width: 144px;
+  height: 144px;
+  top: 7%;
+  right: 13%;
+  transform: rotate(6deg);
 }
 .slot-5 {
-  width: 130px;
-  height: 170px;
-  top: 28%;
-  left: -11%;
-  transform: rotate(5deg);
+  width: 300px;
+  height: 360px;
+  top: 30%;
+  right: 2%;
+  transform: rotate(-7deg);
 }
 .slot-6 {
-  width: 140px;
-  height: 110px;
-  top: 10%;
-  right: -14%;
-  transform: rotate(-11deg);
+  width: 130px;
+  height: 146px;
+  top: 74%;
+  right: 24%;
+  transform: rotate(10deg);
+}
+.slot-7 {
+  width: 104px;
+  height: 104px;
+  top: -2%;
+  right: -1%;
+  transform: rotate(-8deg);
+}
+.slot-8 {
+  width: 190px;
+  height: 190px;
+  top: 30%;
+  left: 15%;
+  transform: rotate(-8deg);
 }
 
 /* ============================================================
-   CLEAN MODE — same six photos, snapped into an aligned, level
-   arrangement. No rotation, no tape (nothing's "pinned" down),
-   a flatter shadow so it reads as tidied-up rather than scattered.
+   CLEAN MODE — the same artifacts, snapped into an aligned,
+   level arrangement with softer shadows.
    ============================================================ */
-.photo-grid.clean .photo-slot {
-  box-shadow: 0 6px 16px -10px var(--shadow), 0 1px 3px rgba(43, 38, 32, 0.06);
-}
-.photo-grid.clean .tape-piece {
-  opacity: 0;
-  transition: opacity 0.3s ease;
+.photo-grid.clean .photo-artifact {
+  filter: drop-shadow(0 8px 10px rgba(43, 38, 32, 0.1));
 }
 
 .photo-grid.clean .slot-1 {
+  width: 194px;
+  height: 136px;
   top: 0%;
-  left: 6%;
-  transform: rotate(0deg);
-}
-.photo-grid.clean .slot-5 {
-  top: 36%;
-  left: 6%;
+  left: 11%;
   transform: rotate(0deg);
 }
 .photo-grid.clean .slot-2 {
-  top: 68%;
-  left: 6%;
+  width: 194px;
+  height: 136px;
+  top: 60%;
+  left: 70%;
   transform: rotate(0deg);
 }
 .photo-grid.clean .slot-3 {
+  width: 82px;
+  height: 218px;
   top: 0%;
-  right: 6%;
-  transform: rotate(0deg);
-}
-.photo-grid.clean .slot-6 {
-  top: 36%;
-  right: 6%;
+  left: 70%;
   transform: rotate(0deg);
 }
 .photo-grid.clean .slot-4 {
-  top: 68%;
-  right: 6%;
+  width: 126px;
+  height: 126px;
+  top: 0%;
+  left: 80%;
   transform: rotate(0deg);
 }
-
-.slot-1 .tape-piece {
-  top: -10px;
-  left: 50%;
-  margin-left: -26px;
-  transform: rotate(-4deg);
+.photo-grid.clean .slot-5 {
+  width: 300px;
+  height: 300px;
+  top: 25%;
+  left: 0%;
+  transform: rotate(0deg);
 }
-.slot-3 .tape-piece {
-  top: -10px;
-  left: 50%;
-  margin-left: -26px;
-  transform: rotate(3deg);
+.photo-grid.clean .slot-6 {
+  width: 118px;
+  height: 136px;
+  top: 30%;
+  right: 5%;
+  transform: rotate(0deg);
 }
-.slot-4 .tape-piece {
-  top: -10px;
-  left: 20px;
-  transform: rotate(-6deg);
+.photo-grid.clean .slot-7 {
+  width: 92px;
+  height: 92px;
+  top: 15%;
+  right: 0%;
+  transform: rotate(0deg);
+}
+.photo-grid.clean .slot-8 {
+  width: 190px;
+  height: 190px;
+  top: 60%;
+  left: 10%;
+  transform: rotate(0deg);
 }
 
 /* ============================================================
    RESPONSIVE
    ============================================================ */
 @media (max-width: 980px) {
-  .photo-slot {
+  .hero-inner {
+    min-height: auto;
+    display: block;
+  }
+  .photo-artifact {
     position: static;
     transform: none !important;
     width: 130px;
@@ -323,6 +303,8 @@ h1.name .cursor {
     margin: 10px;
   }
   .photo-grid {
+    position: relative;
+    inset: auto;
     margin-top: 44px;
     display: flex;
     flex-wrap: wrap;
@@ -344,8 +326,7 @@ h1.name .cursor {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .name .cursor,
-  .scroll-cue span::after {
+  .name .cursor {
     animation: none;
     opacity: 1;
   }

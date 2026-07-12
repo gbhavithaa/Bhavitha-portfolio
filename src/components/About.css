@@ -1,0 +1,214 @@
+/* ============================================================
+   ABOUT — a pinned, typed note on the same paper desk.
+   ============================================================ */
+.about {
+  position: relative;
+  padding: 9rem 5vw 10rem;
+}
+
+.about::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 5vw;
+  right: 5vw;
+  border-top: 1px solid var(--line);
+}
+
+.about-inner {
+  width: min(100%, 1080px);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 142px minmax(0, 1fr) 190px;
+  gap: clamp(2rem, 5vw, 5.5rem);
+  align-items: start;
+}
+
+.section-label {
+  display: grid;
+  gap: 0.55rem;
+  padding-top: 1rem;
+  color: var(--ink-soft);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  line-height: 1.35;
+  text-transform: uppercase;
+}
+
+.section-label span:first-child {
+  color: var(--ribbon);
+}
+
+.about-paper {
+  position: relative;
+  padding: clamp(2.3rem, 5vw, 4.4rem) clamp(1.6rem, 5vw, 4.7rem) 2.35rem;
+  background: #f8f3e7;
+  box-shadow: 11px 13px 0 rgba(43, 38, 32, 0.07), 0 15px 30px rgba(43, 38, 32, 0.08);
+  transform: rotate(-1.1deg);
+}
+
+.about-paper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 2.1rem;
+  border-left: 1px solid rgba(178, 58, 46, 0.22);
+}
+
+.paper-tape {
+  position: absolute;
+  width: 122px;
+  height: 27px;
+  top: -13px;
+  right: 13%;
+  background: rgba(220, 203, 156, 0.72);
+  transform: rotate(3deg);
+}
+
+.about-kicker,
+.notes-title {
+  position: relative;
+  margin: 0 0 1.3rem;
+  color: var(--ribbon);
+  font-size: 0.68rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.about h2 {
+  position: relative;
+  max-width: 550px;
+  margin: 0;
+  font-family: 'Fraunces', serif;
+  font-size: clamp(2.1rem, 4.3vw, 4rem);
+  font-weight: 500;
+  line-height: 1.04;
+  letter-spacing: -0.025em;
+}
+
+.about h2 em {
+  color: var(--moss);
+  font-weight: 500;
+}
+
+.about-copy {
+  position: relative;
+  margin-top: 2.2rem;
+  color: var(--ink-soft);
+  font-size: 0.8rem;
+  line-height: 1.9;
+}
+
+.about-copy p {
+  margin: 0 0 0.65rem;
+}
+
+.about-signoff {
+  position: relative;
+  display: grid;
+  gap: 0.25rem;
+  margin-top: 2.1rem;
+  padding-top: 1.2rem;
+  border-top: 1px dashed var(--line);
+  font-size: 0.66rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.about-signoff span {
+  color: var(--ink-soft);
+}
+
+.about-signoff strong {
+  color: var(--moss);
+  font-size: 0.7rem;
+}
+
+.about-notes {
+  position: relative;
+  margin-top: 9rem;
+  padding: 1.2rem 0 1.2rem 1.2rem;
+  border-left: 2px solid var(--ribbon);
+  transform: rotate(2deg);
+}
+
+.about-notes dl,
+.about-notes dd {
+  margin: 0;
+}
+
+.about-notes dl {
+  display: grid;
+  gap: 1.3rem;
+}
+
+.about-notes dt {
+  margin-bottom: 0.35rem;
+  color: var(--ink-soft);
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.about-notes dd {
+  font-size: 0.72rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 840px) {
+  .about {
+    padding: 6.5rem 6vw 7rem;
+  }
+
+  .about::before {
+    left: 6vw;
+    right: 6vw;
+  }
+
+  .about-inner {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .section-label {
+    display: flex;
+    gap: 0.75rem;
+    padding: 0;
+  }
+
+  .about-notes {
+    width: min(100%, 410px);
+    margin: 0 0 0 auto;
+  }
+
+  .about-notes dl {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+  }
+}
+
+@media (max-width: 520px) {
+  .about-paper {
+    padding: 2.7rem 1.6rem 2rem 3rem;
+  }
+
+  .about-paper::before {
+    left: 1.75rem;
+  }
+
+  .paper-tape {
+    right: 8%;
+    width: 96px;
+  }
+
+  .about-copy {
+    font-size: 0.72rem;
+    line-height: 1.8;
+  }
+
+  .about-notes dl {
+    grid-template-columns: 1fr;
+    gap: 0.9rem;
+  }
+}

@@ -4,16 +4,66 @@ import PhotoSlot from './PhotoSlot.jsx'
 import ModeToggle from './ModeToggle.jsx'
 import './Hero.css'
 
-// Add your own photos here: set `src` (import it or point at /public)
-// and `alt`. Position/rotation is controlled by `positionClass`,
-// defined in Hero.css.
 const slots = [
-  { id: 1, positionClass: 'slot-1', tab: '01 — process', tape: true, src: '', alt: '' },
-  { id: 2, positionClass: 'slot-2', tab: '02 — sketch', tape: false, src: '', alt: '' },
-  { id: 3, positionClass: 'slot-3', tab: '03 — shot', tape: true, src: '', alt: '' },
-  { id: 4, positionClass: 'slot-4', tab: '04 — screen', tape: true, src: '', alt: '' },
-  { id: 5, positionClass: 'slot-5', tab: '05 — detail', tape: false, src: '', alt: '' },
-  { id: 6, positionClass: 'slot-6', tab: '06 — moment', tape: false, src: '', alt: '' },
+  {
+    id: 1,
+    positionClass: 'slot-1',
+    src: '/images/dreams.png',
+    alt: 'Dictionary clipping defining dreams as aspirations and goals for the future',
+    sound: 'dreams',
+  },
+  {
+    id: 2,
+    positionClass: 'slot-2',
+    src: '/images/book.png',
+    alt: 'Open grid notebook pages',
+    overlay: {
+      src: '/images/Stain.png',
+      alt: '',
+      className: 'book-stain',
+    },
+  },
+  {
+    id: 3,
+    positionClass: 'slot-3',
+    src: '/images/Paint.png',
+    alt: 'Pixel art paint tool palette',
+    sound: 'paint',
+  },
+  {
+    id: 4,
+    positionClass: 'slot-4',
+    src: '/images/folder.png',
+    alt: 'Blue folder icon',
+    sound: 'folder',
+  },
+  {
+    id: 5,
+    positionClass: 'slot-5',
+    src: '/images/setup.png',
+    alt: 'Setup with laptop, monitor, and keyboard',
+    sound: 'page',
+  },
+  {
+    id: 6,
+    positionClass: 'slot-6',
+    src: '/images/VLC Icon.png',
+    alt: 'VLC media player cone',
+    sound: 'vlc',
+  },
+  {
+    id: 7,
+    positionClass: 'slot-7',
+    src: '/images/cursor.png',
+    alt: 'Pixel cursor pointer',
+    sound: 'cursor',
+  },
+  {
+    id: 8,
+    positionClass: 'slot-8',
+    src: '/images/ctrlZ.png',
+    alt: 'Ctrl+Z keyboard shortcut',
+  }
 ]
 
 function Hero() {
@@ -32,7 +82,7 @@ function Hero() {
           </div>
 
           <div className="text-block">
-            <div className="eyebrow">Bengaluru, &amp; India </div>
+            <div className="eyebrow">Bengaluru, India </div>
             <h1 className="name">
               Bhavitha
               <br />
@@ -41,14 +91,9 @@ function Hero() {
             </h1>
             <div className="stamp">Full Stack Developer</div>
             <p className="tagline">
-              I design <strong>interfaces that feel considered</strong> — part research,
-              part instinct, part typewriter. Currently shaping products by day, collecting
-              little visual ideas by night.
+              Hi, I'm a <strong>AI & Full Stack Developer</strong> — I build intelligent systems, 
+              chatbots, and modern web applications. 
             </p>
-            <div className="scroll-cue">
-              <span></span>
-              Scroll
-            </div>
           </div>
         </div>
       </section>

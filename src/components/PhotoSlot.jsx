@@ -1,23 +1,26 @@
-/**
- * A single scattered photo in the hero collage.
- *
- * To use your own image, pass a `src` (and `alt`) prop — see the
- * `slots` array in Hero.jsx. Leave `src` empty to keep showing the
- * dashed placeholder while you're still gathering images.
- *
- * `positionClass` controls the size/rotation/placement and is defined
- * in Hero.css (.slot-1, .slot-2, ...). `tape` adds a washi-tape strip
- * across the top corner.
- */
-function PhotoSlot({ positionClass, tab, tape, src, alt }) {
+import { playElementSound } from '../utils/playTick.js'
+
+function PhotoSlot({ positionClass, src, alt, sound, overlay }) {
+  const playSound = () => playElementSound(sound)
+
   return (
-    <div className={`photo-slot ${positionClass}`}>
-      {tape && <div className="tape-piece" />}
-      <div className="frame">
-        {src ? <img src={src} alt={alt || ''} /> : <span>+ photo</span>}
-      </div>
-      <div className="tab">{tab}</div>
-    </div>
+    <button
+      type="button"
+      className={`photo-artifact ${positionClass}`}
+      aria-label={alt || 'Portfolio artifact'}
+      onClick={playSound}
+      onPointerEnter={playSound}
+    >
+      <img src={src} alt={alt || ''} />
+      {overlay && (
+        <img
+          className={`artifact-overlay ${overlay.className || ''}`}
+          src={overlay.src}
+          alt={overlay.alt || ''}
+          aria-hidden={overlay.alt ? undefined : 'true'}
+        />
+      )}
+    </button>
   )
 }
 
