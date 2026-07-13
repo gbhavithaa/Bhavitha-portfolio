@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import Nav from './Nav.jsx'
 import PhotoSlot from './PhotoSlot.jsx'
 import ModeToggle from './ModeToggle.jsx'
@@ -8,6 +7,7 @@ const slots = [
   {
     id: 1,
     positionClass: 'slot-1',
+    travelId: 'dreams',
     src: '/images/dreams.png',
     alt: 'Dictionary clipping defining dreams as aspirations and goals for the future',
     sound: 'dreams',
@@ -26,6 +26,7 @@ const slots = [
   {
     id: 3,
     positionClass: 'slot-3',
+    travelId: 'paint',
     src: '/images/Paint.png',
     alt: 'Pixel art paint tool palette',
     sound: 'paint',
@@ -47,6 +48,7 @@ const slots = [
   {
     id: 6,
     positionClass: 'slot-6',
+    travelId: 'cone',
     src: '/images/VLC Icon.png',
     alt: 'VLC media player cone',
     sound: 'vlc',
@@ -66,9 +68,7 @@ const slots = [
   }
 ]
 
-function Hero() {
-  const [mode, setMode] = useState('chaos') // 'chaos' | 'clean'
-
+function Hero({ mode, setMode }) {
   return (
     <>
       <Nav />

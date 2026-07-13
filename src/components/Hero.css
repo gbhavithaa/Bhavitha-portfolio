@@ -149,6 +149,19 @@ h1.name .cursor {
   object-fit: contain;
   display: block;
 }
+
+/* The 3 traveling images (dreams / paint / cone) stay visible and behave
+   like any other slot in the hero â€” including animating with chaos/clean.
+   Their opacity is handled separately, per scroll-frame, by
+   TravelingArtifacts.jsx, so we deliberately leave "opacity" out of this
+   transition list â€” otherwise the CSS transition would fight the JS
+   updates and make the scroll crossfade feel laggy/rubber-banded. */
+.photo-artifact.travel-source {
+  transition: top 0.62s cubic-bezier(0.22, 1, 0.36, 1), left 0.62s cubic-bezier(0.22, 1, 0.36, 1),
+    right 0.62s cubic-bezier(0.22, 1, 0.36, 1), width 0.62s cubic-bezier(0.22, 1, 0.36, 1),
+    height 0.62s cubic-bezier(0.22, 1, 0.36, 1), transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.35s ease;
+}
 .photo-artifact .artifact-overlay {
   position: absolute;
   pointer-events: none;
@@ -222,7 +235,7 @@ h1.name .cursor {
 }
 
 /* ============================================================
-   CLEAN MODE — the same artifacts, snapped into an aligned,
+   CLEAN MODE â€” the same artifacts, snapped into an aligned,
    level arrangement with softer shadows.
    ============================================================ */
 .photo-grid.clean .photo-artifact {

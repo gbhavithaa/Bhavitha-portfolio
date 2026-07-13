@@ -1,0 +1,29 @@
+.traveling-artifacts {
+  position: fixed;
+  inset: 0;
+  z-index: 4;
+  pointer-events: none;
+}
+
+.traveling-artifact {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  object-fit: contain;
+  filter: drop-shadow(0 14px 16px rgba(43, 38, 32, 0.14));
+  transform-origin: center;
+  will-change: transform, width, height;
+}
+
+@media (max-width: 840px) {
+  .traveling-artifacts {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .traveling-artifacts {
+    display: none;
+  }
+}

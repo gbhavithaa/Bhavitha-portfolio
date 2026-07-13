@@ -1,13 +1,15 @@
 import { playElementSound } from '../utils/playTick.js'
 
-function PhotoSlot({ positionClass, src, alt, sound, overlay }) {
+function PhotoSlot({ positionClass, src, alt, sound, overlay, travelId }) {
   const playSound = () => playElementSound(sound)
 
   return (
     <button
       type="button"
-      className={`photo-artifact ${positionClass}`}
+      className={`photo-artifact ${positionClass} ${travelId ? 'travel-source' : ''}`}
       aria-label={alt || 'Portfolio artifact'}
+      data-artifact-source={travelId}
+      data-artifact-rotation={positionClass === 'slot-1' ? -8 : positionClass === 'slot-3' ? -5 : 10}
       onClick={playSound}
       onPointerEnter={playSound}
     >
