@@ -1,0 +1,117 @@
+import { useState } from 'react'
+import './Projects.css'
+
+// Replace these placeholders with your own project details and links.
+const projects = [
+  {
+    title: 'Project one',
+    description: 'A short sentence about the problem this project solves and the experience it creates.',
+    stack: ['React', 'Node.js', 'MongoDB'],
+    github: '#',
+    live: '#',
+  },
+  {
+    title: 'Project two',
+    description: 'A short sentence about the problem this project solves and the experience it creates.',
+    stack: ['Python', 'FastAPI', 'AI'],
+    github: '#',
+    live: '#',
+  },
+  {
+    title: 'Project three',
+    description: 'A short sentence about the problem this project solves and the experience it creates.',
+    stack: ['JavaScript', 'CSS', 'API'],
+    github: '#',
+    live: '#',
+  },
+  {
+    title: 'Project four',
+    description: 'A short sentence about the problem this project solves and the experience it creates.',
+    stack: ['React', 'Express', 'PostgreSQL'],
+    github: '#',
+    live: '#',
+  },
+  {
+    title: 'Project five',
+    description: 'A short sentence about the problem this project solves and the experience it creates.',
+    stack: ['Python', 'Machine Learning', 'Flask'],
+    github: '#',
+    live: '#',
+  },
+  {
+    title: 'Project six',
+    description: 'A short sentence about the problem this project solves and the experience it creates.',
+    stack: ['Next.js', 'TypeScript', 'Firebase'],
+    github: '#',
+    live: '#',
+  },
+]
+
+function ProjectLinks({ project }) {
+  return (
+    <div className="project-links">
+      <a href={project.github} target="_blank" rel="noreferrer">
+        GitHub <span aria-hidden="true">↗</span>
+      </a>
+      <a href={project.live} target="_blank" rel="noreferrer">
+        Live site <span aria-hidden="true">↗</span>
+      </a>
+    </div>
+  )
+}
+
+function Projects() {
+  const [showAll, setShowAll] = useState(false)
+  const displayedProjects = showAll ? projects : projects.slice(0, 3)
+
+  return (
+    <section className="projects" id="projects" aria-labelledby="projects-title">
+      <div className="projects-inner">
+        <div className="section-label projects-label">
+          <span>03</span>
+          <span>Projects</span>
+        </div>
+
+        <div className="projects-content">
+          <header className="projects-heading">
+            <p className="projects-kicker">Things I made along the way</p>
+            <h2 id="projects-title">A few ideas, <em>brought to life.</em></h2>
+          </header>
+
+          <div className="projects-grid">
+            {displayedProjects.map((project, index) => (
+              <article className="project-card" key={project.title}>
+                <span className="project-number">0{index + 1}</span>
+                <h3>{project.title}</h3>
+                <p>{project.description}</p>
+                <ul className="project-stack" aria-label={`${project.title} technologies`}>
+                  {project.stack.map((item) => <li key={item}>{item}</li>)}
+                </ul>
+                <ProjectLinks project={project} />
+              </article>
+            ))}
+          </div>
+
+          {projects.length > 3 && (
+            <button
+              className="projects-more"
+              type="button"
+              onClick={() => setShowAll((current) => !current)}
+              aria-expanded={showAll}
+            >
+              {showAll ? 'Show fewer projects' : `More projects (${projects.length - 3})`}
+              <span aria-hidden="true">{showAll ? '↑' : '↓'}</span>
+            </button>
+          )}
+        </div>
+
+        <aside className="projects-note" aria-label="Project note">
+          <span>From notes</span>
+          <strong>to browser tabs</strong>
+        </aside>
+      </div>
+    </section>
+  )
+}
+
+export default Projects

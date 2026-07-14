@@ -10,6 +10,7 @@ function About() {
           <div className="about-label-landings" aria-hidden="true">
             <span className="about-landing about-dreams" data-artifact-target="dreams" data-artifact-rotation="-7" />
             <span className="about-landing about-paint" data-artifact-target="paint" data-artifact-rotation="7" />
+            <span className="about-landing about-cone" data-artifact-target="cone" data-artifact-rotation="-10" />
           </div>
         </div>
 
@@ -40,9 +41,6 @@ function About() {
 
         <aside className="about-notes" aria-label="Quick facts">
           <p className="notes-title">Quick notes</p>
-          <div className="about-notes-landing" aria-hidden="true">
-            <span className="about-landing about-cone" data-artifact-target="cone" data-artifact-rotation="-10" />
-          </div>
           <dl>
             <div>
               <dt>Based in</dt>

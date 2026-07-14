@@ -1,0 +1,215 @@
+/* ============================================================
+   WORK — a clipped timeline of places and progress.
+   ============================================================ */
+.work {
+  position: relative;
+  padding: 5rem 5vw 10rem;
+  overflow: hidden;
+}
+
+.work::before {
+  content: '';
+  position: absolute;
+  top: 8rem;
+  right: -7rem;
+  width: 20rem;
+  height: 20rem;
+  border: 1px solid rgba(79, 94, 69, 0.13);
+  border-radius: 50%;
+}
+
+.work-inner {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 1400px);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 142px minmax(0, 1fr) 190px;
+  gap: clamp(2rem, 5vw, 5.5rem);
+  align-items: start;
+}
+
+.work-label {
+  padding-top: 1.3rem;
+}
+
+.work-content {
+  min-width: 0;
+}
+
+.work-heading {
+  max-width: 600px;
+  margin-bottom: 3.2rem;
+}
+
+.work-kicker,
+.work-type {
+  margin: 0;
+  color: var(--ribbon);
+  font-size: 0.64rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.work h2 {
+  margin: 1rem 0 0;
+  font-family: 'Fraunces', serif;
+  font-size: clamp(2.1rem, 4.3vw, 4rem);
+  font-weight: 500;
+  line-height: 1.04;
+  letter-spacing: -0.01em;
+}
+
+.work h2 em {
+  color: var(--moss);
+  font-style: normal;
+}
+
+.work-timeline {
+  position: relative;
+  display: grid;
+  gap: 1.6rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.work-timeline::before {
+  content: '';
+  position: absolute;
+  top: 0.6rem;
+  bottom: 1.8rem;
+  left: 8.5rem;
+  border-left: 1px dashed var(--line);
+}
+
+.work-entry {
+  display: grid;
+  grid-template-columns: 7rem minmax(0, 1fr);
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.work-date {
+  padding-top: 1.25rem;
+  color: var(--ink-soft);
+  font-size: 0.64rem;
+  line-height: 1.6;
+}
+
+.work-card {
+  position: relative;
+  padding: 1.7rem clamp(1.4rem, 4vw, 2.6rem) 1.75rem;
+  background: #faf5e8;
+  box-shadow: 8px 10px 0 rgba(43, 38, 32, 0.06), 0 12px 22px rgba(43, 38, 32, 0.06);
+}
+
+.work-entry:nth-child(odd) .work-card {
+  transform: rotate(0.65deg);
+}
+
+.work-entry:nth-child(even) .work-card {
+  background: #eee5cf;
+  transform: rotate(-0.7deg);
+}
+
+.work-pin {
+  position: absolute;
+  top: -0.45rem;
+  left: -0.55rem;
+  width: 0.9rem;
+  height: 0.9rem;
+  border: 2px solid #f7efe0;
+  border-radius: 50%;
+  background: var(--ribbon);
+  box-shadow: 0 2px 3px rgba(43, 38, 32, 0.25);
+}
+
+.work-card h3 {
+  margin: 0.6rem 0 0;
+  font-family: 'Fraunces', serif;
+  font-size: clamp(1.45rem, 2.4vw, 2rem);
+  font-weight: 500;
+  line-height: 1.12;
+}
+
+.work-place {
+  margin: 0.65rem 0 0;
+  color: var(--moss);
+  font-size: 0.7rem;
+  line-height: 1.5;
+}
+
+.work-detail {
+  max-width: 490px;
+  margin: 1.25rem 0 0;
+  color: var(--ink-soft);
+  font-size: 0.72rem;
+  line-height: 1.8;
+}
+
+.work-margin-note {
+  display: grid;
+  gap: 0.35rem;
+  margin-top: 11rem;
+  padding: 1.25rem 0 1.25rem 1.2rem;
+  border-left: 2px solid var(--moss);
+  color: var(--ink-soft);
+  font-size: 0.6rem;
+  letter-spacing: 0.09em;
+  line-height: 1.55;
+  text-transform: uppercase;
+  transform: rotate(-2deg);
+}
+
+.work-margin-note strong {
+  color: var(--ribbon);
+  font-family: 'Fraunces', serif;
+  font-size: 1.65rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+@media (max-width: 840px) {
+  .work {
+    padding: 4rem 6vw 7rem;
+  }
+
+  .work-inner {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .work-label {
+    display: flex;
+    gap: 0.75rem;
+    padding: 0;
+  }
+
+  .work-margin-note {
+    width: min(100%, 410px);
+    margin: 0 0 0 auto;
+  }
+}
+
+@media (max-width: 520px) {
+  .work-timeline::before {
+    left: 0.45rem;
+    top: 2rem;
+  }
+
+  .work-entry {
+    grid-template-columns: 1fr;
+    gap: 0.7rem;
+    padding-left: 1.5rem;
+  }
+
+  .work-date {
+    padding-top: 0;
+  }
+
+  .work-card {
+    padding: 1.5rem 1.25rem;
+  }
+}

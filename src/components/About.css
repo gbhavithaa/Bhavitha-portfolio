@@ -31,8 +31,8 @@
 
 .about-cone {
   width: 90px;
-  bottom: 6%;
-  left: max(1.5rem, calc(50% - 650px));
+  bottom: 8%;
+  right: max(1.5rem, calc(50% - 650px));
 }
 
 .about-inner {

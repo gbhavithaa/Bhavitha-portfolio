@@ -1,0 +1,226 @@
+/* PROJECTS — a small stack of build notes. */
+.projects {
+  position: relative;
+  padding: 4rem 5vw 10rem;
+  overflow: hidden;
+}
+
+.projects::before {
+  position: absolute;
+  top: 4rem;
+  left: -4rem;
+  width: 15rem;
+  height: 15rem;
+  border: 1px solid rgba(178, 58, 46, 0.12);
+  border-radius: 50%;
+  content: '';
+}
+
+.projects-inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 142px minmax(0, 1fr) 190px;
+  gap: clamp(2rem, 5vw, 5.5rem);
+  width: min(100%, 1400px);
+  margin: 0 auto;
+}
+
+.projects-label {
+  padding-top: 1.3rem;
+}
+
+.projects-heading {
+  max-width: 600px;
+  margin-bottom: 3rem;
+}
+
+.projects-kicker {
+  margin: 0;
+  color: var(--ribbon);
+  font-size: 0.64rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.projects h2 {
+  margin: 1rem 0 0;
+  font-family: 'Fraunces', serif;
+  font-size: clamp(2.1rem, 4.3vw, 4rem);
+  font-weight: 500;
+  line-height: 1.04;
+  letter-spacing: -0.01em;
+}
+
+.projects h2 em {
+  color: var(--moss);
+  font-style: normal;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.project-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 18.5rem;
+  padding: 2rem clamp(1.35rem, 3vw, 2.2rem) 1.6rem;
+  background: #faf5e8;
+  box-shadow: 8px 10px 0 rgba(43, 38, 32, 0.06), 0 12px 22px rgba(43, 38, 32, 0.05);
+}
+
+.project-card:nth-child(3n + 2) {
+  background: #eee5cf;
+  transform: rotate(0.7deg);
+}
+
+.project-card:nth-child(3n + 3) {
+  transform: rotate(-0.65deg);
+}
+
+.project-card::before {
+  position: absolute;
+  top: -0.42rem;
+  right: 1.4rem;
+  width: 0.82rem;
+  height: 0.82rem;
+  border: 2px solid #f7efe0;
+  border-radius: 50%;
+  background: var(--moss);
+  box-shadow: 0 2px 3px rgba(43, 38, 32, 0.24);
+  content: '';
+}
+
+.project-number {
+  color: var(--ribbon);
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+}
+
+.project-card h3 {
+  margin: 1.1rem 0 0;
+  font-family: 'Fraunces', serif;
+  font-size: clamp(1.5rem, 2.4vw, 2rem);
+  font-weight: 500;
+  line-height: 1.1;
+}
+
+.project-card > p {
+  margin: 1rem 0 0;
+  color: var(--ink-soft);
+  font-size: 0.7rem;
+  line-height: 1.8;
+}
+
+.project-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin: 1.25rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.project-stack li {
+  padding: 0.35rem 0.5rem;
+  border: 1px solid rgba(79, 94, 69, 0.3);
+  color: var(--moss);
+  font-size: 0.57rem;
+  letter-spacing: 0.05em;
+}
+
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: auto;
+  padding-top: 1.5rem;
+}
+
+.project-links a,
+.projects-more {
+  font: inherit;
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.project-links a {
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px solid var(--ribbon);
+}
+
+.project-links a:hover,
+.project-links a:focus-visible {
+  color: var(--ribbon);
+}
+
+.project-links a:focus-visible,
+.projects-more:focus-visible {
+  outline: 2px solid var(--ribbon);
+  outline-offset: 4px;
+}
+
+.projects-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin-top: 2.5rem;
+  padding: 0.8rem 0;
+  border: 0;
+  border-bottom: 1px solid var(--ink);
+  color: var(--ink);
+  background: transparent;
+  cursor: pointer;
+}
+
+.projects-more:hover {
+  color: var(--ribbon);
+  border-color: var(--ribbon);
+}
+
+.projects-more span {
+  color: var(--ribbon);
+  font-size: 1rem;
+}
+
+.projects-note {
+  display: grid;
+  gap: 0.35rem;
+  margin-top: 12rem;
+  padding: 1.25rem 0 1.25rem 1.2rem;
+  border-left: 2px solid var(--ribbon);
+  color: var(--ink-soft);
+  font-size: 0.6rem;
+  letter-spacing: 0.09em;
+  line-height: 1.55;
+  text-transform: uppercase;
+  transform: rotate(2deg);
+}
+
+.projects-note strong {
+  color: var(--moss);
+  font-family: 'Fraunces', serif;
+  font-size: 1.25rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1.1;
+  text-transform: none;
+}
+
+@media (max-width: 840px) {
+  .projects { padding: 4rem 6vw 7rem; }
+  .projects-inner { grid-template-columns: 1fr; gap: 2rem; }
+  .projects-label { display: flex; gap: 0.75rem; padding: 0; }
+  .projects-note { width: min(100%, 410px); margin: 0 0 0 auto; }
+}
+
+@media (max-width: 560px) {
+  .projects-grid { grid-template-columns: 1fr; }
+  .project-card { min-height: 0; }
+}
