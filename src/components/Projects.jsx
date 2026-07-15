@@ -4,10 +4,10 @@ import './Projects.css'
 // Replace these placeholders with your own project details and links.
 const projects = [
   {
-    title: 'Project one',
-    description: 'A short sentence about the problem this project solves and the experience it creates.',
-    stack: ['React', 'Node.js', 'MongoDB'],
-    github: '#',
+    title: 'ShadowSouled Art',
+    description: 'Created a website for a famous artist to showcase their artwork and sell their pieces online. The website features a gallery of the artist\'s work, and a blog for sharing news and updates.',
+    stack: ['React', 'Tailwind CSS', 'AOS'],
+    github: 'https://github.com/gbhavithaa/shadowsouled-art.git',
     live: '#',
   },
   {
