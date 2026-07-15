@@ -74,7 +74,7 @@ function Hero({ mode, setMode }) {
       <Nav />
       <section className="hero">
         <ModeToggle mode={mode} setMode={setMode} />
-        <div className="hero-inner">
+        <div className={`hero-inner ${mode}`}>
           <div className={`photo-grid ${mode}`}>
             {slots.map((slot) => (
               <PhotoSlot key={slot.id} {...slot} />
