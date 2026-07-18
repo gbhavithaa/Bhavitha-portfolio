@@ -25,6 +25,10 @@ html {
 }
 
 body {
+  overflow-x: hidden;
+}
+
+body {
   margin: 0;
   background: var(--paper);
   color: var(--ink);
@@ -32,6 +36,10 @@ body {
   /* faint paper grain so the cream isn't a flat fill */
   background-image: radial-gradient(circle at 20% 30%, rgba(43, 38, 32, 0.025) 0, transparent 45%),
     radial-gradient(circle at 80% 70%, rgba(43, 38, 32, 0.03) 0, transparent 50%);
+}
+
+img {
+  max-width: 100%;
 }
 
 a {

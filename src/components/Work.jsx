@@ -2,22 +2,22 @@ import './Work.css'
 
 const timeline = [
   {
-    period: 'August 2024 — Present',
+    period: 'July 2025 — Present',
     title: 'AI & Full Stack Developer',
     place: 'Capgemini · Bengaluru, India',
     detail: 'Building and contributing to full stack solutions as part of a global technology team.',
     type: 'Experience',
   },
-  // {
-  //   period: 'September 2024 — June 2025',
-  //   title: 'Full Stack Developer Intern',
-  //   place: 'Ola Krutrim· Bengaluru, India',
-  //   detail: 'Worked on developing Ola Krutrim, collaborating with cross-functional teams to deliver high-quality software solutions.',
-  //   type: 'Experience',
-  // },
+  {
+    period: 'September 2024 — June 2025',
+    title: 'Frontend Developer',
+    place: 'Ola Krutrim· Bengaluru, India',
+    detail: 'Worked on developing Ola Krutrim, collaborating with cross-functional teams to deliver high-quality software solutions.',
+    type: 'Experience',
+  },
   {
     period: '2020 — 2024',
-    title: 'B.Tech in Computer Science',
+    title: 'B.Tech in Computer Science & Information Technology',
     place: 'BVRIT · Hyderabad, India',
     detail: 'Built the foundations in computer science that continue to shape how I solve problems.',
     type: 'Education',

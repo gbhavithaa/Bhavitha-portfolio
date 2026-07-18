@@ -25,23 +25,23 @@ const projects = [
     live: '#',
   },
   {
-    title: 'Project four',
-    description: 'A short sentence about the problem this project solves and the experience it creates.',
-    stack: ['React', 'Express', 'PostgreSQL'],
+    title: 'AI based SBOM Analysis',
+    description: 'A tool that uses AI to analyze software bill of materials (SBOM) and identify potential security vulnerabilities. The tool features a user-friendly interface and is designed to help developers and security teams improve the security of their software.',
+    stack: ['x', 'y', 'z'],
     github: '#',
     live: '#',
   },
   {
-    title: 'Project five',
-    description: 'A short sentence about the problem this project solves and the experience it creates.',
-    stack: ['Python', 'Machine Learning', 'Flask'],
+    title: 'five',
+    description: 'scjsncs',
+    stack: ['x', 'y', 'z'],
     github: '#',
     live: '#',
   },
   {
-    title: 'Project six',
-    description: 'A short sentence about the problem this project solves and the experience it creates.',
-    stack: ['Next.js', 'TypeScript', 'Firebase'],
+    title: 'six',
+    description: 'jsdbvhs',
+    stack: ['x', 'y', 'z'],
     github: '#',
     live: '#',
   },
@@ -106,8 +106,8 @@ function Projects() {
         </div>
 
         <aside className="projects-note" aria-label="Project note">
-          <span>From notes</span>
-          <strong>to browser tabs</strong>
+          <span>From sketches</span>
+          <strong>to live products</strong>
         </aside>
       </div>
     </section>

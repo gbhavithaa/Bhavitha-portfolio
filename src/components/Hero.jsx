@@ -1,3 +1,4 @@
+import { useLayoutEffect, useRef } from 'react'
 import Nav from './Nav.jsx'
 import PhotoSlot from './PhotoSlot.jsx'
 import ModeToggle from './ModeToggle.jsx'
@@ -69,19 +70,62 @@ const slots = [
 ]
 
 function Hero({ mode, setMode }) {
+  const textBlockRef = useRef(null)
+  const photoGridRef = useRef(null)
+  const previousLayoutRef = useRef(null)
+
+  const changeMode = (nextMode) => {
+    // Record the current layout before React applies the new mode. After the
+    // update, the effect below uses those positions to glide the two groups
+    // into their already-defined clean/chaos layouts.
+    previousLayoutRef.current = [textBlockRef.current, photoGridRef.current]
+      .filter(Boolean)
+      .map((element) => ({ element, rect: element.getBoundingClientRect() }))
+
+    setMode(nextMode)
+  }
+
+  useLayoutEffect(() => {
+    const previousLayout = previousLayoutRef.current
+    if (!previousLayout) return
+
+    previousLayoutRef.current = null
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+
+    previousLayout.forEach(({ element, rect }) => {
+      const nextRect = element.getBoundingClientRect()
+      const x = rect.left - nextRect.left
+      const y = rect.top - nextRect.top
+
+      if (x || y) {
+        element.getAnimations().forEach((animation) => animation.cancel())
+        element.animate(
+          [
+            { transform: `translate(${x}px, ${y}px)` },
+            { transform: 'translate(0, 0)' },
+          ],
+          {
+            duration: 620,
+            easing: 'cubic-bezier(0.22, 1, 0.36, 1)',
+          },
+        )
+      }
+    })
+  }, [mode])
+
   return (
     <>
       <Nav />
       <section className="hero">
-        <ModeToggle mode={mode} setMode={setMode} />
+        <ModeToggle mode={mode} setMode={changeMode} />
         <div className={`hero-inner ${mode}`}>
-          <div className={`photo-grid ${mode}`}>
+          <div ref={photoGridRef} className={`photo-grid ${mode}`}>
             {slots.map((slot) => (
               <PhotoSlot key={slot.id} {...slot} />
             ))}
           </div>
 
-          <div className="text-block">
+          <div ref={textBlockRef} className="text-block">
             <div className="eyebrow">Bengaluru, India </div>
             <h1 className="name">
               Bhavitha

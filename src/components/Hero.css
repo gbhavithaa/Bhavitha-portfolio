@@ -43,10 +43,12 @@
 }
 
 .hero-inner.clean .eyebrow,
-.hero-inner.clean .stamp,
 .hero-inner.clean .tagline {
   margin-left: 0;
   margin-right: auto;
+}
+.hero-inner.clean .stamp{
+  transform: rotate(0deg);
 }
 
 .hero-inner.clean .tagline {
@@ -344,8 +346,8 @@ h1.name .cursor {
   .photo-artifact {
     position: static;
     transform: none !important;
-    width: 130px;
-    height: 160px;
+    width: clamp(104px, 20vw, 130px);
+    height: clamp(120px, 25vw, 160px);
     display: inline-block;
     margin: 10px;
   }
@@ -367,8 +369,50 @@ h1.name .cursor {
 }
 
 @media (max-width: 520px) {
+  .hero {
+    padding: 2.5rem 6vw 4rem;
+  }
+
+  .text-block {
+    text-align: center;
+  }
+
+  .eyebrow {
+    margin-bottom: 1rem;
+    font-size: 0.65rem;
+  }
+
+  h1.name {
+    font-size: clamp(3rem, 15vw, 4.5rem);
+  }
+
+  .stamp {
+    margin-top: 1.25rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.62rem;
+  }
+
   .tagline {
-    font-size: 14px;
+    margin-top: 1.25rem;
+    font-size: 0.75rem;
+    line-height: 1.7;
+  }
+
+  .photo-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.4rem;
+    margin-top: 2rem;
+  }
+
+  .photo-artifact {
+    width: 100%;
+    height: 7.5rem;
+    margin: 0;
+  }
+
+  .photo-artifact:nth-child(n + 7) {
+    display: none;
   }
 }
 

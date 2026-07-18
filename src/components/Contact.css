@@ -1,0 +1,133 @@
+/* CONTACT — a final project note. */
+.contact {
+  position: relative;
+  padding: 4rem 5vw 9rem;
+  overflow: hidden;
+}
+
+.contact::before {
+  position: absolute;
+  right: -4rem;
+  bottom: 4rem;
+  width: 15rem;
+  height: 15rem;
+  border: 1px solid rgba(79, 94, 69, 0.13);
+  border-radius: 50%;
+  content: '';
+}
+
+.contact-inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 142px minmax(0, 1fr) 190px;
+  gap: clamp(2rem, 5vw, 5.5rem);
+  width: min(100%, 1400px);
+  margin: 0 auto;
+  align-items: start;
+}
+
+.contact-label { padding-top: 1.3rem; }
+.contact-content { min-width: 0; }
+
+.contact-heading {
+  max-width: 600px;
+  margin-bottom: 3rem;
+}
+
+.contact-kicker {
+  margin: 0;
+  color: var(--ribbon);
+  font-size: 0.64rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.contact h2 {
+  margin: 1rem 0 0;
+  font-family: 'Fraunces', serif;
+  font-size: clamp(2.1rem, 4.3vw, 4rem);
+  font-weight: 500;
+  line-height: 1.04;
+  letter-spacing: -0.01em;
+}
+
+.contact h2 em { color: var(--moss); font-style: normal; }
+
+.contact-card {
+  position: relative;
+  max-width: 680px;
+  padding: clamp(1.8rem, 4vw, 2.7rem);
+  background: #faf5e8;
+  box-shadow: 8px 10px 0 rgba(43, 38, 32, 0.06), 0 12px 22px rgba(43, 38, 32, 0.05);
+  transform: rotate(-0.65deg);
+}
+
+.contact-tape {
+  position: absolute;
+  top: -0.7rem;
+  right: 13%;
+  width: 7rem;
+  height: 1.45rem;
+  background: rgba(220, 203, 156, 0.72);
+  transform: rotate(3deg);
+}
+
+.contact-card > p {
+  max-width: 510px;
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.74rem;
+  line-height: 1.85;
+}
+
+.contact-email {
+  display: inline-grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.45rem 1rem;
+  margin-top: 1.8rem;
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px solid var(--ribbon);
+}
+
+.contact-email span { color: var(--ribbon); font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; }
+.contact-email strong { grid-column: 1; font-size: clamp(0.72rem, 1.6vw, 0.85rem); overflow-wrap: anywhere; }
+.contact-email b { grid-column: 2; grid-row: 1 / span 2; align-self: center; color: var(--ribbon); font-size: 1.15rem; font-weight: 400; }
+.contact-email:hover { color: var(--ribbon); }
+.contact-email:focus-visible, .contact-note a:focus-visible { outline: 2px solid var(--ribbon); outline-offset: 4px; }
+
+.contact-note {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 9.7rem;
+  padding: 1.25rem 0 1.25rem 1.2rem;
+  border-left: 2px solid var(--ribbon);
+  color: var(--ink-soft);
+  font-size: 0.6rem;
+  letter-spacing: 0.09em;
+  line-height: 1.55;
+  text-transform: uppercase;
+  transform: rotate(2deg);
+}
+
+.contact-note > span { color: var(--ink-soft); }
+.contact-note a { width: fit-content; color: var(--ink); font-size: 0.7rem; letter-spacing: 0; text-decoration: none; text-transform: none; border-bottom: 1px solid rgba(178, 58, 46, 0.7); }
+.contact-note a:hover { color: var(--ribbon); }
+.contact-note p { margin: 1rem 0 0; }
+.contact-note strong { color: var(--moss); font-family: 'Fraunces', serif; font-size: 1.15rem; font-weight: 500; letter-spacing: 0; line-height: 1.1; text-transform: none; }
+
+@media (max-width: 840px) {
+  .contact { padding: 4rem 6vw 7rem; }
+  .contact-inner { grid-template-columns: 1fr; gap: 2rem; }
+  .contact-label { display: flex; gap: 0.75rem; padding: 0; }
+  .contact-note { width: min(100%, 410px); margin: 0 0 0 auto; }
+}
+
+@media (max-width: 520px) {
+  .contact { padding: 3.5rem 6vw 5rem; }
+  .contact-heading { margin-bottom: 2rem; }
+  .contact-card { padding: 1.6rem 1.3rem; }
+  .contact-email { display: grid; width: 100%; }
+  .contact-note { margin-left: 0; }
+}

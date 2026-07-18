@@ -44,9 +44,24 @@
 
 @media (max-width: 520px) {
   .nav {
-    padding: 22px 6vw 0;
+    gap: 1rem;
+    padding: 18px 6vw 0;
+    font-size: 0.62rem;
   }
-  .nav ul li:not(:last-child) {
-    display: none; /* keep just one nav link on very small screens */
+
+  .nav .mark {
+    flex: 0 0 auto;
+    width: 32px;
+    height: 32px;
+  }
+
+  .nav ul {
+    flex: 1;
+    justify-content: flex-end;
+    gap: clamp(0.65rem, 4vw, 1rem);
+  }
+
+  .nav ul li:nth-child(2) {
+    display: none;
   }
 }
