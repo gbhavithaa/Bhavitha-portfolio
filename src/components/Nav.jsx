@@ -9,6 +9,9 @@ function Nav() {
           <a href="#work">Work</a>
         </li>
         <li>
+          <a href="#tech-stack">Stack</a>
+        </li>
+        <li>
           <a href="#projects">Projects</a>
         </li>
         <li>

@@ -17,6 +17,19 @@
   position: absolute;
 }
 
+.folder-stop {
+  position: absolute;
+  display: block;
+  width: 10.5rem;
+  height: 7.5rem;
+  pointer-events: none;
+}
+
+.about-folder-stop {
+  top: 18%;
+  right: max(1.5rem, calc(50% - 690px));
+}
+
 .about-dreams {
   width: 148px;
   top: 20%;
@@ -214,6 +227,8 @@
   .about-landing-slots {
     display: none;
   }
+
+  .folder-stop { display: none; }
 }
 
 @media (max-width: 520px) {

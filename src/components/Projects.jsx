@@ -68,7 +68,7 @@ function Projects() {
     <section className="projects" id="projects" aria-labelledby="projects-title">
       <div className="projects-inner">
         <div className="section-label projects-label">
-          <span>03</span>
+          <span>04</span>
           <span>Projects</span>
         </div>
 

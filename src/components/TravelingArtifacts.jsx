@@ -2,9 +2,21 @@ import { useEffect, useRef } from 'react'
 import './TravelingArtifacts.css'
 
 const artifacts = [
-  { id: 'dreams', src: '/images/dreams.png', alt: '' },
-  { id: 'paint', src: '/images/Paint.png', alt: '' },
-  { id: 'cone', src: '/images/VLC Icon.png', alt: '' },
+  { id: 'dreams', src: '/images/dreams.png', section: '.about', alt: '' },
+  { id: 'paint', src: '/images/Paint.png', section: '.about', alt: '' },
+  { id: 'cone', src: '/images/VLC Icon.png', section: '.about', alt: '' },
+  // The folder has three visible rest stops before it opens at Tech Stack.
+  {
+    id: 'folder',
+    src: '/images/folder.png',
+    section: '.tech-stack',
+    stops: [
+      '[data-artifact-stop="folder-about"]',
+      '[data-artifact-stop="folder-work"]',
+      '[data-artifact-target="folder"]',
+    ],
+    alt: '',
+  },
 ]
 
 function TravelingArtifacts({ mode }) {
@@ -18,36 +30,96 @@ function TravelingArtifacts({ mode }) {
     const updateArtifacts = () => {
       frame = undefined
       const isDesktop = window.matchMedia('(min-width: 841px)').matches
-      const aboutSection = document.querySelector('.about')
-      if (!aboutSection) return
-
-      // Shared trigger for all three artifacts, based on the About section
-      // itself scrolling into view — NOT on each artifact's own target
-      // position. Individual targets can sit anywhere inside a tall About
-      // section (top: 20%, bottom: 9%, whatever); tying opacity to that
-      // meant targets positioned low down (like cone's "bottom: 9%") could
-      // never scroll high enough into the trigger zone before the page ran
-      // out, leaving them permanently semi-transparent. This way, "when do
-      // they land" and "where do they land" are decoupled.
-      const aboutRect = aboutSection.getBoundingClientRect()
-      const progress = Math.min(
-        1,
-        Math.max(0, (window.innerHeight * 0.9 - aboutRect.top) / (window.innerHeight * 0.66)),
-      )
-
-      artifacts.forEach(({ id }) => {
+      artifacts.forEach(({ id, start, section, stops }) => {
         const item = itemRefs.current[id]
         const source = document.querySelector(`[data-artifact-source="${id}"]`)
         const target = document.querySelector(`[data-artifact-target="${id}"]`)
+        const destination = document.querySelector(section)
+        const stopElements = stops?.map((selector) => document.querySelector(selector))
 
         // Reduced motion, mobile, or missing elements: no traveling clone,
         // and the real hero image stays at full opacity (its own CSS
         // handles chaos/clean positioning as normal).
-        if (!item || !source || !target || !isDesktop || reduceMotion) {
+        if (!item || !source || !target || !destination || (stops && stopElements.some((stop) => !stop)) || !isDesktop || reduceMotion) {
           if (item) item.style.opacity = '0'
           if (source) source.style.opacity = ''
           return
         }
+
+        const destinationRect = destination.getBoundingClientRect()
+
+        if (stops) {
+          const sourceRect = source.getBoundingClientRect()
+          const stopRects = stopElements.map((stop) => stop.getBoundingClientRect())
+          const sectionSelectors = ['.about', '.work', '.tech-stack']
+          const milestones = sectionSelectors.map((selector) => document.querySelector(selector))
+          const scrollY = window.scrollY
+          const startPoints = milestones.map((milestone) => milestone.getBoundingClientRect().top + scrollY - window.innerHeight * 0.9)
+          const endPoints = milestones.map((milestone) => milestone.getBoundingClientRect().top + scrollY - window.innerHeight * 0.15)
+          const aspectRatio = item.naturalWidth && item.naturalHeight
+            ? item.naturalHeight / item.naturalWidth
+            : sourceRect.height / sourceRect.width
+          const rotations = [
+            Number(source.dataset.artifactRotation || 0),
+            ...stopElements.map((stop) => Number(stop.dataset.artifactRotation || 0)),
+          ]
+          let fromRect = sourceRect
+          let toRect = stopRects[0]
+          let fromRotation = rotations[0]
+          let toRotation = rotations[1]
+          let travelProgress = 0
+          let opacity = 0
+
+          for (let index = 0; index < stopRects.length; index += 1) {
+            if (scrollY < startPoints[index]) break
+
+            fromRect = index === 0 ? sourceRect : stopRects[index - 1]
+            toRect = stopRects[index]
+            fromRotation = rotations[index]
+            toRotation = rotations[index + 1]
+            travelProgress = Math.min(1, Math.max(0, (scrollY - startPoints[index]) / (endPoints[index] - startPoints[index])))
+            opacity = 1
+
+            if (scrollY <= endPoints[index]) break
+            travelProgress = 1
+          }
+
+          // Once the folder reaches its final stop, fade out the travelling
+          // copy so the opened folder in Tech Stack can take over.
+          if (scrollY > endPoints[2]) {
+            opacity = Math.max(0, 1 - (scrollY - endPoints[2]) / 120)
+          }
+
+          const fromWidth = fromRect.width || sourceRect.width
+          const toWidth = toRect.width || sourceRect.width
+          const width = fromWidth + (toWidth - fromWidth) * travelProgress
+          const height = width * aspectRatio
+          const left = fromRect.left + (toRect.left - fromRect.left) * travelProgress
+          const top = fromRect.top + (toRect.top - fromRect.top) * travelProgress
+          const rotation = fromRotation + (toRotation - fromRotation) * travelProgress
+
+          Object.assign(item.style, {
+            opacity: String(opacity),
+            width: `${width}px`,
+            height: `${height}px`,
+            transform: `translate(${left}px, ${top}px) rotate(${rotation}deg)`,
+          })
+          source.style.opacity = scrollY < endPoints[0] ? String(1 - travelProgress) : '0'
+          return
+        }
+
+        const startSection = start && document.querySelector(start)
+        const progress = startSection
+          ? (() => {
+              const scrollY = window.scrollY
+              const startY = startSection.getBoundingClientRect().top + scrollY - window.innerHeight * 0.9
+              const endY = destinationRect.top + scrollY - window.innerHeight * 0.25
+              return Math.min(1, Math.max(0, (scrollY - startY) / (endY - startY)))
+            })()
+          : Math.min(
+              1,
+              Math.max(0, (window.innerHeight * 0.9 - destinationRect.top) / (window.innerHeight * 0.66)),
+            )
 
         const sourceRect = source.getBoundingClientRect()
         const targetRect = target.getBoundingClientRect()

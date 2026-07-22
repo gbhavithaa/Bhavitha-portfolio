@@ -35,6 +35,7 @@ const slots = [
   {
     id: 4,
     positionClass: 'slot-4',
+    travelId: 'folder',
     src: '/images/folder.png',
     alt: 'Blue folder icon',
     sound: 'folder',

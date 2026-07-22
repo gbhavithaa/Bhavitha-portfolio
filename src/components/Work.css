@@ -18,6 +18,16 @@
   border-radius: 50%;
 }
 
+.work-folder-stop {
+  position: absolute;
+  bottom: 12%;
+  left: max(1.25rem, calc(50% - 690px));
+  display: block;
+  width: 10.5rem;
+  height: 7.5rem;
+  pointer-events: none;
+}
+
 .work-inner {
   position: relative;
   z-index: 1;
@@ -191,6 +201,8 @@
     width: min(100%, 410px);
     margin: 0 0 0 auto;
   }
+
+  .work-folder-stop { display: none; }
 }
 
 @media (max-width: 520px) {

@@ -3,6 +3,7 @@ import './About.css'
 function About() {
   return (
     <section className="about" id="about" aria-labelledby="about-title">
+      <span className="folder-stop about-folder-stop" data-artifact-stop="folder-about" data-artifact-rotation="-10" aria-hidden="true" />
       <div className="about-inner">
         <div className="section-label">
           <span>01</span>

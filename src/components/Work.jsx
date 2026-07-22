@@ -27,6 +27,7 @@ const timeline = [
 function Work() {
   return (
     <section className="work" id="work" aria-labelledby="work-title">
+      <span className="folder-stop work-folder-stop" data-artifact-stop="folder-work" data-artifact-rotation="8" aria-hidden="true" />
       <div className="work-inner">
         <div className="section-label work-label">
           <span>02</span>

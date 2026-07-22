@@ -1,5 +1,11 @@
 import { playElementSound } from '../utils/playTick.js'
 
+const rotations = {
+  'slot-1': -8,
+  'slot-3': -5,
+  'slot-4': 6,
+}
+
 function PhotoSlot({ positionClass, src, alt, sound, overlay, travelId }) {
   const playSound = () => playElementSound(sound)
 
@@ -9,7 +15,7 @@ function PhotoSlot({ positionClass, src, alt, sound, overlay, travelId }) {
       className={`photo-artifact ${positionClass} ${travelId ? 'travel-source' : ''}`}
       aria-label={alt || 'Portfolio artifact'}
       data-artifact-source={travelId}
-      data-artifact-rotation={positionClass === 'slot-1' ? -8 : positionClass === 'slot-3' ? -5 : 10}
+      data-artifact-rotation={rotations[positionClass] ?? 10}
       onClick={playSound}
       onPointerEnter={playSound}
     >

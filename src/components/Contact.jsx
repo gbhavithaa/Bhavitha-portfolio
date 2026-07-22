@@ -7,7 +7,7 @@ function Contact() {
     <section className="contact" id="contact" aria-labelledby="contact-title">
       <div className="contact-inner">
         <div className="section-label contact-label">
-          <span>04</span>
+          <span>05</span>
           <span>Contact</span>
         </div>
 
