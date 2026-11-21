@@ -12,19 +12,16 @@ function TechStack() {
 
   useEffect(() => {
     const section = sectionRef.current
-    const folderTarget = section?.querySelector('.tech-folder-target')
-    if (!folderTarget) return undefined
+    if (!section) return undefined
 
     const observer = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting) {
         setIsOpen(true)
         observer.disconnect()
       }
-    // The real folder remains invisible until the travelling copy reaches
-    // this landing point. This creates a hand-off rather than two folders.
-    }, { rootMargin: '-5% 0px -90% 0px', threshold: 0 })
+    }, { rootMargin: '-20% 0px -75% 0px', threshold: 0 })
 
-    observer.observe(folderTarget)
+    observer.observe(section)
     return () => observer.disconnect()
   }, [])
 
@@ -43,7 +40,6 @@ function TechStack() {
           </header>
 
           <div className="tech-folder-stage">
-            <span className="tech-folder-target" data-artifact-target="folder" data-artifact-rotation="-4" aria-hidden="true" />
             <img className="tech-folder" src="/images/folder.png" alt="" aria-hidden="true" />
             <div className="tech-paper" aria-label="Technology stack">
               <span className="tech-paper-tape" aria-hidden="true" />

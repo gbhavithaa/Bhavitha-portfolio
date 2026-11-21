@@ -3,7 +3,6 @@ import './About.css'
 function About() {
   return (
     <section className="about" id="about" aria-labelledby="about-title">
-      <span className="folder-stop about-folder-stop" data-artifact-stop="folder-about" data-artifact-rotation="-10" aria-hidden="true" />
       <div className="about-inner">
         <div className="section-label">
           <span>01</span>
@@ -27,7 +26,7 @@ function About() {
               I enjoy turning complex ideas into useful, human-friendly digital experiences.
             </p>
             <p>
-              From intelligent chatbots to polished web applications, I like working where logic meets design.
+              From intelligent chatbots to polished web applications, I like working where logic meets desifgn.
             </p>
             <p>
               I’m always learning, experimenting, and looking for the next problem worth solving.

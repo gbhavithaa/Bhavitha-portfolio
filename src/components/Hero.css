@@ -235,8 +235,8 @@ h1.name .cursor {
   transform: rotate(-5deg);
 }
 .slot-4 {
-  width: 144px;
-  height: 144px;
+  width: 118px;
+  height: 118px;
   top: 7%;
   right: 13%;
   transform: rotate(6deg);
@@ -300,8 +300,8 @@ h1.name .cursor {
   transform: rotate(0deg);
 }
 .photo-grid.clean .slot-4 {
-  width: 108px;
-  height: 108px;
+  width: 92px;
+  height: 92px;
   top: 6%;
   left: 55%;
   transform: rotate(0deg);

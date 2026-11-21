@@ -8,13 +8,13 @@ const timeline = [
     detail: 'Building and contributing to full stack solutions as part of a global technology team.',
     type: 'Experience',
   },
-  {
-    period: 'September 2024 — June 2025',
-    title: 'Frontend Developer',
-    place: 'Ola Krutrim· Bengaluru, India',
-    detail: 'Worked on developing Ola Krutrim, collaborating with cross-functional teams to deliver high-quality software solutions.',
-    type: 'Experience',
-  },
+  // {
+  //   period: 'September 2024 — June 2025',
+  //   title: 'Frontend Developer',
+  //   place: 'Ola Krutrim· Bengaluru, India',
+  //   detail: 'Worked on developing Ola Krutrim, collaborating with cross-functional teams to deliver high-quality software solutions.',
+  //   type: 'Experience',
+  // },
   {
     period: '2020 — 2024',
     title: 'B.Tech in Computer Science & Information Technology',
@@ -27,7 +27,6 @@ const timeline = [
 function Work() {
   return (
     <section className="work" id="work" aria-labelledby="work-title">
-      <span className="folder-stop work-folder-stop" data-artifact-stop="folder-work" data-artifact-rotation="8" aria-hidden="true" />
       <div className="work-inner">
         <div className="section-label work-label">
           <span>02</span>
